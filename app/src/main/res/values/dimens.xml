@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="initiative_turn_item_height">75dp</dimen>
+
+    <dimen name="add_participant_button_height">50dp</dimen>
+    <dimen name="add_participant_button_width">100dp</dimen>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="175dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/add_participant_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Nombre del participante"/>
+
+    <EditText
+        android:id="@+id/add_participant_thrown"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/add_participant_name"
+        android:text="Tirada"/>
+
+    <Button
+        android:layout_width="@dimen/add_participant_button_width"
+        android:layout_height="@dimen/add_participant_button_height"
+        android:layout_below="@+id/add_participant_thrown"
+        android:layout_alignParentEnd="true"
+        android:text="Añadir"/>
+
+</RelativeLayout>
