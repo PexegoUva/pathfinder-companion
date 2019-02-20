@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import com.pexegouva.pathfinder_companion.R;
 import com.pexegouva.pathfinder_companion.presentation.ViewInitializer;
-import com.pexegouva.pathfinder_companion.presentation.models.Participant;
+import com.pexegouva.pathfinder_companion.presentation.models.ParticipantModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -132,7 +132,7 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
   }
 
   @Override
-  public void addNewParticipantToList(Participant participant) {
+  public void addNewParticipantToList(ParticipantModel participant) {
     participantsListAdapter.addItem(participant);
   }
 }

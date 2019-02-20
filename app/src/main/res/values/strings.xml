@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">pathfinder-companion</string>
     <string name="action_settings">Settings</string>
+
+    <!-- ParticipantList view -->
+    <string name="participant_list.text_view.pretty_thrown">Thrown: %1$s</string>
+
+    <!-- NewParticipantFragment view -->
+    <string name="participant_fragment.edit_text.participant_name">Participant Name</string>
+    <string name="participant_fragment.edit_text.participant_thrown">Participant Thrown</string>
+    <string name="participant_fragment.button.add_participant">Add</string>
 </resources>

@@ -3,24 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="175dp"
+    android:layout_height="wrap_content"
+    android:background="@android:color/background_light"
     android:orientation="vertical">
 
     <EditText
         android:id="@+id/new_participant_name_edit_text"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Nombre del participante"
+        android:layout_height="wrap_content"
+        android:hint="@string/participant_fragment.edit_text.participant_name"
         android:inputType="textPersonName"
         tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/new_participant_thrown_edit_text"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/new_participant_name_edit_text"
         android:inputType="number"
-        android:hint="Tirada"
+        android:hint="@string/participant_fragment.edit_text.participant_thrown"
         tools:ignore="Autofill" />
 
     <Button
@@ -29,6 +30,6 @@
         android:layout_height="@dimen/add_participant_button_height"
         android:layout_below="@+id/new_participant_thrown_edit_text"
         android:layout_alignParentEnd="true"
-        android:text="Añadir"/>
+        android:text="@string/participant_fragment.button.add_participant"/>
 
 </RelativeLayout>

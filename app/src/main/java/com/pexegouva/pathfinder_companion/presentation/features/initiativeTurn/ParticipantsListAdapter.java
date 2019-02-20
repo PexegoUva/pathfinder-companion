@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pexegouva.pathfinder_companion.R;
-import com.pexegouva.pathfinder_companion.presentation.models.Participant;
+import com.pexegouva.pathfinder_companion.presentation.models.ParticipantModel;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,13 +20,16 @@ import butterknife.ButterKnife;
 
 public class ParticipantsListAdapter extends RecyclerView.Adapter<ParticipantsListAdapter.ItemViewHolder> {
 
+  private Context context;
+
   private final LayoutInflater layoutInflater;
 
-  private List<Participant> participantsCollection;
+  private List<ParticipantModel> participantsCollection;
 
   ParticipantsListAdapter(Context context) {
     layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+    this.context = context;
     this.participantsCollection = new ArrayList<>();
   }
 
@@ -39,10 +42,13 @@ public class ParticipantsListAdapter extends RecyclerView.Adapter<ParticipantsLi
 
   @Override
   public void onBindViewHolder(@NonNull ItemViewHolder viewHolder, int position) {
-    final Participant participant = this.getItem(position);
+    final ParticipantModel participant = this.getItem(position);
 
     viewHolder.participantName.setText(participant.getName());
-    viewHolder.participantThrown.setText(participant.getPrettyThrown());
+
+    String prettyThrown =
+        context.getString(R.string.participant_list_text_view_pretty_thrown, participant.getThrown());
+    viewHolder.participantThrown.setText(prettyThrown);
   }
 
   @Override
@@ -50,18 +56,18 @@ public class ParticipantsListAdapter extends RecyclerView.Adapter<ParticipantsLi
     return (participantsCollection != null) ? participantsCollection.size() : 0;
   }
 
-  Participant getItem(int position) {
+  ParticipantModel getItem(int position) {
     return participantsCollection.get(position);
   }
 
-  void addItem(Participant participant) {
+  void addItem(ParticipantModel participant) {
     this.validateCollection(participantsCollection);
 
     participantsCollection.add(participant);
     this.notifyItemInserted(participantsCollection.size() - 1);
   }
 
-  private void validateCollection(Collection<Participant> participants) {
+  private void validateCollection(Collection<ParticipantModel> participants) {
     if (participants == null) {
       throw new IllegalArgumentException("The list cannot be null");
     }

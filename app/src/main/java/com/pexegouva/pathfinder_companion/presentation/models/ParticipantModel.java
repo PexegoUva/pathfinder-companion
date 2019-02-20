@@ -1,11 +1,11 @@
 package com.pexegouva.pathfinder_companion.presentation.models;
 
-public class Participant {
+public class ParticipantModel {
 
   private String name;
   private String thrown;
 
-  public Participant(String name, String thrown) {
+  public ParticipantModel(String name, String thrown) {
     this.name = name;
     this.thrown = thrown;
   }
@@ -14,7 +14,7 @@ public class Participant {
     return name;
   }
 
-  public String getPrettyThrown() {
-    return "Tirada: " + thrown;
+  public String getThrown() {
+    return thrown;
   }
 }

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.pexegouva.pathfinder_companion.presentation.Presenter;
-import com.pexegouva.pathfinder_companion.presentation.models.Participant;
+import com.pexegouva.pathfinder_companion.presentation.models.ParticipantModel;
 
 public class InitiativeTurnPresenter implements Presenter {
 
@@ -39,7 +39,7 @@ public class InitiativeTurnPresenter implements Presenter {
   }
 
   void addNewParticipantToList(String name, String thrown) {
-    Participant newParticipant = new Participant(name, thrown);
+    ParticipantModel newParticipant = new ParticipantModel(name, thrown);
     initiativeTurnView.addNewParticipantToList(newParticipant);
   }
 }
