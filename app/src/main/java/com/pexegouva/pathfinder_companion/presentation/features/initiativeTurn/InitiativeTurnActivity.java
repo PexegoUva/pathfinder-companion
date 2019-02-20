@@ -1,21 +1,23 @@
 package com.pexegouva.pathfinder_companion.presentation.features.initiativeTurn;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.pexegouva.pathfinder_companion.R;
-import com.pexegouva.pathfinder_companion.presentation.ViewInitializer;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.EditText;
+import com.pexegouva.pathfinder_companion.R;
+import com.pexegouva.pathfinder_companion.presentation.ViewInitializer;
+import com.pexegouva.pathfinder_companion.presentation.models.Participant;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class InitiativeTurnActivity extends AppCompatActivity implements ViewInitializer, InitiativeTurnView {
 
@@ -24,6 +26,11 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
 
   @BindView(R.id.participant_list)
   RecyclerView participantList;
+
+  @BindView(R.id.new_participant_name_edit_text)
+  EditText participantName;
+  @BindView(R.id.new_participant_thrown_edit_text)
+  EditText participantThrown;
 
   Fragment newParticipantFragment;
   FragmentManager fragmentManager;
@@ -90,7 +97,8 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
 
   private void initializeParticipantList() {
     participantList.setHasFixedSize(true); // Improve performance due to fixed Height.
-    participantList.setAdapter(new ParticipantsListAdapter(this));
+    participantList.setLayoutManager(new LinearLayoutManager(this));
+    participantList.setAdapter(participantsListAdapter);
   }
 
   private void initializeNewParticipantsFragment() {
@@ -100,6 +108,13 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
     transaction = fragmentManager.beginTransaction();
     transaction.hide(newParticipantFragment);
     transaction.commit();
+  }
+
+  @OnClick(R.id.add_new_participant_button)
+  void onNewParticipantClick() {
+    String newParticipantName = participantName.getText().toString();
+    String newParticipantThrown = participantThrown.getText().toString();
+    initiativeTurnPresenter.addNewParticipantToList(newParticipantName, newParticipantThrown);
   }
 
   @Override
@@ -114,5 +129,10 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
     transaction = fragmentManager.beginTransaction();
     transaction.hide(newParticipantFragment);
     transaction.commit();
+  }
+
+  @Override
+  public void addNewParticipantToList(Participant participant) {
+    participantsListAdapter.addItem(participant);
   }
 }

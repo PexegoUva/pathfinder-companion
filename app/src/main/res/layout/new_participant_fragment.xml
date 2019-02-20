@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="175dp"
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/add_participant_name"
+        android:id="@+id/new_participant_name_edit_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Nombre del participante"/>
+        android:hint="Nombre del participante"
+        android:inputType="textPersonName"
+        tools:ignore="Autofill" />
 
     <EditText
-        android:id="@+id/add_participant_thrown"
+        android:id="@+id/new_participant_thrown_edit_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/add_participant_name"
-        android:text="Tirada"/>
+        android:layout_below="@+id/new_participant_name_edit_text"
+        android:inputType="number"
+        android:hint="Tirada"
+        tools:ignore="Autofill" />
 
     <Button
+        android:id="@+id/add_new_participant_button"
         android:layout_width="@dimen/add_participant_button_width"
         android:layout_height="@dimen/add_participant_button_height"
-        android:layout_below="@+id/add_participant_thrown"
+        android:layout_below="@+id/new_participant_thrown_edit_text"
         android:layout_alignParentEnd="true"
         android:text="Añadir"/>
 

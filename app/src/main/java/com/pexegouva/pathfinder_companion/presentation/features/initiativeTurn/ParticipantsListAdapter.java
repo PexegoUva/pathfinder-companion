@@ -1,6 +1,8 @@
 package com.pexegouva.pathfinder_companion.presentation.features.initiativeTurn;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,36 +15,34 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ParticipantsListAdapter extends RecyclerView.Adapter<ParticipantsListAdapter.ViewHolder> {
-  private Context context;
+public class ParticipantsListAdapter extends RecyclerView.Adapter<ParticipantsListAdapter.ItemViewHolder> {
 
   private final LayoutInflater layoutInflater;
 
   private List<Participant> participantsCollection;
 
-  public ParticipantsListAdapter(Context context) {
-    this.context = context;
+  ParticipantsListAdapter(Context context) {
     layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+    this.participantsCollection = new ArrayList<>();
   }
 
   @NonNull
   @Override
-  public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-    View participantsList = this.layoutInflater.inflate(R.layout.initiative_turn_list_item, parent, false);
-    return new ViewHolder(participantsList);
+  public ParticipantsListAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    View participantItem = layoutInflater.inflate(R.layout.participant_list_item, parent, false);
+    return new ItemViewHolder(participantItem);
   }
 
   @Override
-  public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+  public void onBindViewHolder(@NonNull ItemViewHolder viewHolder, int position) {
     final Participant participant = this.getItem(position);
 
     viewHolder.participantName.setText(participant.getName());
-    viewHolder.participantThrown.setText(participant.getThrown());
+    viewHolder.participantThrown.setText(participant.getPrettyThrown());
   }
 
   @Override
@@ -50,15 +50,14 @@ public class ParticipantsListAdapter extends RecyclerView.Adapter<ParticipantsLi
     return (participantsCollection != null) ? participantsCollection.size() : 0;
   }
 
-  public Participant getItem(int position) {
+  Participant getItem(int position) {
     return participantsCollection.get(position);
   }
 
-  public void addItem(Participant participant) {
-    List<Participant> participants = new ArrayList<>(participantsCollection);
+  void addItem(Participant participant) {
+    this.validateCollection(participantsCollection);
 
-    this.validateCollection(participants);
-    this.participantsCollection.add(participant);
+    participantsCollection.add(participant);
     this.notifyItemInserted(participantsCollection.size() - 1);
   }
 
@@ -68,15 +67,15 @@ public class ParticipantsListAdapter extends RecyclerView.Adapter<ParticipantsLi
     }
   }
 
-  class ViewHolder extends RecyclerView.ViewHolder {
+  class ItemViewHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.participant_name)
+    @BindView(R.id.participant_list_name)
     TextView participantName;
 
-    @BindView(R.id.participant_thrown)
+    @BindView(R.id.participant_list_thrown)
     TextView participantThrown;
 
-    public ViewHolder(@NonNull View itemView) {
+    ItemViewHolder(@NonNull View itemView) {
       super(itemView);
       ButterKnife.bind(this, itemView);
     }

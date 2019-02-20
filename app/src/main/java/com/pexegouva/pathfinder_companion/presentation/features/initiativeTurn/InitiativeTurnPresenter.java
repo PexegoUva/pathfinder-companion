@@ -1,8 +1,10 @@
 package com.pexegouva.pathfinder_companion.presentation.features.initiativeTurn;
 
-import com.pexegouva.pathfinder_companion.presentation.Presenter;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.pexegouva.pathfinder_companion.presentation.Presenter;
+import com.pexegouva.pathfinder_companion.presentation.models.Participant;
 
 public class InitiativeTurnPresenter implements Presenter {
 
@@ -34,5 +36,10 @@ public class InitiativeTurnPresenter implements Presenter {
     } else {
       initiativeTurnView.showNewParticipantFragment();
     }
+  }
+
+  void addNewParticipantToList(String name, String thrown) {
+    Participant newParticipant = new Participant(name, thrown);
+    initiativeTurnView.addNewParticipantToList(newParticipant);
   }
 }
