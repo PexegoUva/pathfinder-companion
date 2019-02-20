@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".presentation.features.initiativeTurn.InitiativeTurnActivity"
     tools:showIn="@layout/initiative_turn_activity">
@@ -12,8 +12,54 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/participant_list"
         android:scrollbars="vertical"
+        android:layout_weight="0.70"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp">
     </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/turn_management_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/new_turn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/participant_list.button.new_turn"/>
+
+            <TextView
+                android:id="@+id/turn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/participant_list.text_view.turn_not_initialized" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/next_participant_turn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/participant_list.button.next_participant"/>
+
+            <TextView
+                android:id="@+id/turn_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/participant_list.text_view.turn_not_initialized" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

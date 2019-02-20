@@ -5,4 +5,6 @@ public interface ViewInitializer {
   void initializeData();
 
   void initializeUI();
+
+  void showError(String errorMessage);
 }

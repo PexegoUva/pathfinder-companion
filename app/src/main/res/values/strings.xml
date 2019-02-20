@@ -2,8 +2,16 @@
     <string name="app_name">pathfinder-companion</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Errors -->
+    <string name="error.participant_name_or_thrown_empty">Participant Name or Thrown is empty</string>
+
     <!-- ParticipantList view -->
     <string name="participant_list.text_view.pretty_thrown">Thrown: %1$s</string>
+    <string name="participant_list.text_view.next_turn">Next participant: %1$s</string>
+    <string name="participant_list.text_view.new_turn">Turn: %1$s</string>
+    <string name="participant_list.button.new_turn">New Turn</string>
+    <string name="participant_list.button.next_participant">Next</string>
+    <string name="participant_list.text_view.turn_not_initialized">Turn not started</string>
 
     <!-- NewParticipantFragment view -->
     <string name="participant_fragment.edit_text.participant_name">Participant Name</string>

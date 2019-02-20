@@ -5,21 +5,25 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import com.pexegouva.pathfinder_companion.R;
-import com.pexegouva.pathfinder_companion.presentation.ViewInitializer;
+import com.pexegouva.pathfinder_companion.presentation.Activity;
 import com.pexegouva.pathfinder_companion.presentation.models.ParticipantModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class InitiativeTurnActivity extends AppCompatActivity implements ViewInitializer, InitiativeTurnView {
+public class InitiativeTurnActivity extends Activity implements InitiativeTurnView {
 
   private InitiativeTurnPresenter initiativeTurnPresenter;
   private ParticipantsListAdapter participantsListAdapter;
@@ -31,10 +35,20 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
   EditText participantName;
   @BindView(R.id.new_participant_thrown_edit_text)
   EditText participantThrown;
+  @BindView(R.id.turn_order)
+  TextView turnOrder;
+  @BindView(R.id.turn)
+  TextView newTurn;
+  @BindView(R.id.turn_management_container)
+  LinearLayout turnManagementContainer;
+  @BindView(R.id.next_participant_turn)
+  Button nextParticipant;
 
   Fragment newParticipantFragment;
   FragmentManager fragmentManager;
   FragmentTransaction transaction;
+
+  private int currentTurn;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +84,7 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
   public void initializeData() {
     initiativeTurnPresenter = new InitiativeTurnPresenter();
     initiativeTurnPresenter.setView(this);
+    initiativeTurnPresenter.setContext(this);
 
     participantsListAdapter = new ParticipantsListAdapter(this);
   }
@@ -83,6 +98,11 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
     initializeFloatingButton();
     initializeParticipantList();
     initializeNewParticipantsFragment();
+  }
+
+  @Override
+  public void showError(String error) {
+    initError(error).show();
   }
 
   private void initializeToolbar() {
@@ -110,6 +130,18 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
     transaction.commit();
   }
 
+  @OnClick(R.id.new_turn)
+  void onNewTurnClick() {
+    currentTurn++;
+    initiativeTurnPresenter.setThrownList(participantsListAdapter.getItemList());
+    initiativeTurnPresenter.nextTurn();
+  }
+
+  @OnClick(R.id.next_participant_turn)
+  void onNextParticipantClick() {
+    initiativeTurnPresenter.nextParticipant();
+  }
+
   @OnClick(R.id.add_new_participant_button)
   void onNewParticipantClick() {
     String newParticipantName = participantName.getText().toString();
@@ -134,5 +166,30 @@ public class InitiativeTurnActivity extends AppCompatActivity implements ViewIni
   @Override
   public void addNewParticipantToList(ParticipantModel participant) {
     participantsListAdapter.addItem(participant);
+  }
+
+  @Override
+  public void nextParticipant(String participantName) {
+    turnOrder.setText(getString(R.string.participant_list_text_view_next_turn, participantName));
+  }
+
+  @Override
+  public void nextTurn() {
+    newTurn.setText(getString(R.string.participant_list_text_view_new_turn, currentTurn));
+  }
+
+  @Override
+  public void showTurnManagementContainer() {
+    turnManagementContainer.setVisibility(View.VISIBLE);
+  }
+
+  @Override
+  public void enableNextParticipantButton() {
+    nextParticipant.setEnabled(true);
+  }
+
+  @Override
+  public void disableNextParticipantButton() {
+    nextParticipant.setEnabled(false);
   }
 }

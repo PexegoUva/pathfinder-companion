@@ -60,6 +60,10 @@ public class ParticipantsListAdapter extends RecyclerView.Adapter<ParticipantsLi
     return participantsCollection.get(position);
   }
 
+  List<ParticipantModel> getItemList() {
+    return participantsCollection;
+  }
+
   void addItem(ParticipantModel participant) {
     this.validateCollection(participantsCollection);
 
