@@ -1,7 +1,6 @@
-package com.pexegouva.pathfinder_companion.presentation.features.initiativeTurn;
+package com.pexegouva.pathfinder_companion.features.initiativeTurn;
 
-import com.pexegouva.pathfinder_companion.presentation.ViewInitializer;
-import com.pexegouva.pathfinder_companion.presentation.models.ParticipantModel;
+import com.pexegouva.pathfinder_companion.core.platform.ViewInitializer;
 
 public interface InitiativeTurnView extends ViewInitializer {
   void showNewParticipantFragment();

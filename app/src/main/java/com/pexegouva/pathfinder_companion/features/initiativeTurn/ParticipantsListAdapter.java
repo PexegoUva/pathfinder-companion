@@ -1,4 +1,4 @@
-package com.pexegouva.pathfinder_companion.presentation.features.initiativeTurn;
+package com.pexegouva.pathfinder_companion.features.initiativeTurn;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.pexegouva.pathfinder_companion.R;
-import com.pexegouva.pathfinder_companion.presentation.models.ParticipantModel;
 
 import java.util.ArrayList;
 import java.util.Collection;

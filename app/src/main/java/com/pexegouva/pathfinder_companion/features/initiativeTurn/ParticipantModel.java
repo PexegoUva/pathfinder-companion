@@ -1,4 +1,4 @@
-package com.pexegouva.pathfinder_companion.presentation.models;
+package com.pexegouva.pathfinder_companion.features.initiativeTurn;
 
 public class ParticipantModel {
 

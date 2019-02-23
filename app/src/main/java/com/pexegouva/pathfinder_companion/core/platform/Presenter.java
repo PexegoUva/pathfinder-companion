@@ -1,6 +1,6 @@
-package com.pexegouva.pathfinder_companion.presentation;
+package com.pexegouva.pathfinder_companion.core.platform;
 
-import com.pexegouva.pathfinder_companion.presentation.features.initiativeTurn.InitiativeTurnView;
+import com.pexegouva.pathfinder_companion.features.initiativeTurn.InitiativeTurnView;
 import androidx.annotation.NonNull;
 
 public interface Presenter {

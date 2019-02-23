@@ -1,4 +1,4 @@
-package com.pexegouva.pathfinder_companion.presentation.features.initiativeTurn;
+package com.pexegouva.pathfinder_companion.features.initiativeTurn;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
