@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">pathfinder-companion</string>
     <string name="action_settings">Settings</string>
+    <string name="toolbar.title">PathfinderCompanion</string>
 
     <!-- Errors -->
     <string name="error.participant_name_or_thrown_empty">Participant Name or Thrown is empty</string>
 
     <!-- ParticipantList view -->
+    <string name="participant_list.sub_title">Initiative Turn</string>
     <string name="participant_list.text_view.pretty_thrown">Thrown: %1$s</string>
     <string name="participant_list.text_view.next_turn">Next participant: %1$s</string>
     <string name="participant_list.text_view.new_turn">Turn: %1$s</string>

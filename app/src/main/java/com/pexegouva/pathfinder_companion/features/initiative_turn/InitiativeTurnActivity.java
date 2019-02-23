@@ -1,4 +1,4 @@
-package com.pexegouva.pathfinder_companion.presentation.features.initiativeTurn;
+package com.pexegouva.pathfinder_companion.features.initiative_turn;
 
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,17 +17,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pexegouva.pathfinder_companion.R;
-import com.pexegouva.pathfinder_companion.presentation.Activity;
-import com.pexegouva.pathfinder_companion.presentation.models.ParticipantModel;
+import com.pexegouva.pathfinder_companion.core.platform.BaseActivity;
+
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class InitiativeTurnActivity extends Activity implements InitiativeTurnView {
+public class InitiativeTurnActivity extends BaseActivity implements InitiativeTurnView {
 
   private InitiativeTurnPresenter initiativeTurnPresenter;
   private ParticipantsListAdapter participantsListAdapter;
 
+  @BindView(R.id.toolbar)
+  Toolbar toolbar;
   @BindView(R.id.participant_list)
   RecyclerView participantList;
 
@@ -106,8 +110,9 @@ public class InitiativeTurnActivity extends Activity implements InitiativeTurnVi
   }
 
   private void initializeToolbar() {
-    Toolbar toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
+    Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.toolbar_title);
+    getSupportActionBar().setSubtitle(R.string.participant_list_sub_title);
   }
 
   private void initializeFloatingButton() {

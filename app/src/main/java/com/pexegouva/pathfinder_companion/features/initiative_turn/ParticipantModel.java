@@ -1,11 +1,11 @@
-package com.pexegouva.pathfinder_companion.presentation.models;
+package com.pexegouva.pathfinder_companion.features.initiative_turn;
 
 public class ParticipantModel {
 
   private String name;
   private String thrown;
 
-  public ParticipantModel(String name, String thrown) {
+  ParticipantModel(String name, String thrown) {
     this.name = name;
     this.thrown = thrown;
   }
@@ -14,7 +14,7 @@ public class ParticipantModel {
     return name;
   }
 
-  public String getThrown() {
+  String getThrown() {
     return thrown;
   }
 }

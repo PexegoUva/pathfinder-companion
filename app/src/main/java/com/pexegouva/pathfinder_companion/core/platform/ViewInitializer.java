@@ -1,4 +1,4 @@
-package com.pexegouva.pathfinder_companion.presentation;
+package com.pexegouva.pathfinder_companion.core.platform;
 
 public interface ViewInitializer {
 
