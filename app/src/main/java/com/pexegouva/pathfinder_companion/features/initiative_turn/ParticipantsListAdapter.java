@@ -1,4 +1,4 @@
-package com.pexegouva.pathfinder_companion.features.initiativeTurn;
+package com.pexegouva.pathfinder_companion.features.initiative_turn;
 
 import android.content.Context;
 import androidx.annotation.NonNull;

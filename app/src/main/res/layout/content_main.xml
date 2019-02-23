@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".presentation.features.initiativeTurn.InitiativeTurnBaseActivity"
+    tools:context=".features.initiative_turn.InitiativeTurnActivity"
     tools:showIn="@layout/initiative_turn_activity">
 
     <androidx.recyclerview.widget.RecyclerView
