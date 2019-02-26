@@ -1,6 +1,4 @@
-package com.pexegouva.pathfinder_companion.presentation.Database;
-
-import com.pexegouva.pathfinder_companion.features.enemies_list.Enemy;
+package com.pexegouva.pathfinder_companion.features.enemies_list;
 
 import java.util.List;
 
@@ -19,7 +17,7 @@ public interface EnemyDao {
     @Query("SELECT * FROM enemy WHERE id IN (:enemyIds)")
     List<Enemy> loadAllByIds(int[] enemyIds);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Enemy enemy);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

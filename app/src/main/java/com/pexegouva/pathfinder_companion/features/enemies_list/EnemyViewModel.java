@@ -2,8 +2,6 @@ package com.pexegouva.pathfinder_companion.features.enemies_list;
 
 import android.app.Application;
 
-import com.pexegouva.pathfinder_companion.presentation.Database.EnemiesRepository;
-
 import java.util.List;
 
 import androidx.lifecycle.AndroidViewModel;

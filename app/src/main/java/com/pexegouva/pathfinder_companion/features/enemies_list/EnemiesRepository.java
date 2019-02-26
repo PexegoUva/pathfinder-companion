@@ -1,9 +1,9 @@
-package com.pexegouva.pathfinder_companion.presentation.Database;
+package com.pexegouva.pathfinder_companion.features.enemies_list;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
-import com.pexegouva.pathfinder_companion.features.enemies_list.Enemy;
+import com.pexegouva.pathfinder_companion.core.persistence.PathfinderDatabase;
 
 import java.util.List;
 
