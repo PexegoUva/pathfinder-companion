@@ -1,5 +1,6 @@
 package com.pexegouva.pathfinder_companion.features.initiative_turn;
 
+import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.pexegouva.pathfinder_companion.R;
 import com.pexegouva.pathfinder_companion.core.platform.BaseActivity;
+import com.pexegouva.pathfinder_companion.features.enemies_list.EnemyListActivity;
 
 import java.util.Objects;
 
@@ -78,6 +80,8 @@ public class InitiativeTurnActivity extends BaseActivity implements InitiativeTu
 
     //noinspection SimplifiableIfStatement
     if (id == R.id.action_settings) {
+      Intent intent = new Intent(this, EnemyListActivity.class);
+      startActivity(intent);
       return true;
     }
 

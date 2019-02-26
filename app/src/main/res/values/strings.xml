@@ -21,4 +21,5 @@
     <string name="participant_fragment.edit_text.participant_name">Participant Name</string>
     <string name="participant_fragment.edit_text.participant_thrown">Participant Thrown</string>
     <string name="participant_fragment.button.add_participant">Add</string>
+    <string name="title_activity_enemies_list">EnemiesListActivity</string>
 </resources>
