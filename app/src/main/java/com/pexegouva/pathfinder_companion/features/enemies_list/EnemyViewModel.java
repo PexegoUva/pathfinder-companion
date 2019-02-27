@@ -18,7 +18,8 @@ public class EnemyViewModel extends AndroidViewModel {
         allEnemies = mRepository.getAllEnemies();
     }
 
-    LiveData<List<Enemy>> getAllWords() { return allEnemies; }
+    LiveData<List<Enemy>> getAllEnemies() { return allEnemies; }
 
     public void insert(Enemy enemy) { mRepository.insert(enemy); }
+
 }

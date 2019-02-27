@@ -1,6 +1,9 @@
 package com.pexegouva.pathfinder_companion.features.enemies_list;
 
+import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,8 @@ import com.pexegouva.pathfinder_companion.R;
 
 import java.util.List;
 
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.EnemiesViewHolder> {
@@ -63,7 +68,9 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
     private final LayoutInflater mInflater;
     private List<Enemy> enemyList; // Cached copy of words
 
-    EnemyListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
+    EnemyListAdapter(Context context) {
+        mInflater = LayoutInflater.from(context);
+    }
 
     @Override
     public EnemiesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -78,29 +85,308 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             if (current.getName() != null) {
                 holder.tvName.setText(current.getName());
             }
+            holder.tvName.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    enemyList.get(position).setName(charSequence.toString());
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             if (current.getDamage() != null) {
                 holder.tvDamage.setText(current.getDamage());
             }
+            holder.tvDamage.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    enemyList.get(position).setDamage(charSequence.toString());
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             if (current.getFeats() != null) {
                 holder.tvFeats.setText(current.getFeats());
             }
+            holder.tvFeats.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    enemyList.get(position).setFeats(charSequence.toString());
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             if (current.getResists() != null) {
                 holder.tvResists.setText(current.getResists());
             }
+            holder.tvResists.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    enemyList.get(position).setResists(charSequence.toString());
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             if (current.getFeats() != null) {
                 holder.tvSpecials.setText(current.getSpecials());
             }
+            holder.tvSpecials.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    enemyList.get(position).setSpecials(charSequence.toString());
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvPG.setText(String.valueOf(current.getPg()));
+            holder.tvPG.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setPg(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvCA.setText(String.valueOf(current.getCa()));
+            holder.tvCA.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setCa(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvFlatFooted.setText(String.valueOf(current.getFlatFooted()));
+            holder.tvFlatFooted.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setFlatFooted(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvTouch.setText(String.valueOf(current.getTouch()));
+            holder.tvTouch.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setTouch(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvFort.setText(String.valueOf(current.getFort()));
+            holder.tvFort.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setTouch(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvRef.setText(String.valueOf(current.getRef()));
+            holder.tvRef.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setRef(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvVol.setText(String.valueOf(current.getVol()));
+            holder.tvVol.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setVol(Integer.parseInt(charSequence.toString()));
+                    }
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvSpeed.setText(String.valueOf(current.getSpeed()));
+            holder.tvSpeed.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setSpeed(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvInitiative.setText(String.valueOf(current.getInitiative()));
+            holder.tvInitiative.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setInitiative(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvAttack.setText(String.valueOf(current.getAttack()));
+            holder.tvAttack.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setAttack(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
             holder.tvExperience.setText(String.valueOf(current.getExperiencePoints()));
+            holder.tvExperience.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    if(!charSequence.toString().equals("")) {
+                        enemyList.get(position).setExperiencePoints(Integer.parseInt(charSequence.toString()));
+                    }
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                }
+            });
         }
     }
 

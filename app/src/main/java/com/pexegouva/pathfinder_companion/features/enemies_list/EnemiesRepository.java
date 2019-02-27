@@ -24,7 +24,7 @@ public class EnemiesRepository {
         return allEnemies;
     }
 
-    public void insert (Enemy enemy) {
+    public void insert(Enemy enemy) {
         new insertAsyncTask(enemyDao).execute(enemy);
     }
 
