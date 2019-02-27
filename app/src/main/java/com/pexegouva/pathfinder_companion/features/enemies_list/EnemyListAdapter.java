@@ -84,16 +84,18 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             Enemy current = enemyList.get(position);
             if (current.getName() != null) {
                 holder.tvName.setText(current.getName());
+            } else {
+                holder.tvName.setText("");
             }
             holder.tvName.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    enemyList.get(position).setName(charSequence.toString());
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    current.setName(charSequence.toString());
                 }
 
                 @Override
@@ -103,16 +105,18 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             });
             if (current.getDamage() != null) {
                 holder.tvDamage.setText(current.getDamage());
+            } else {
+                holder.tvDamage.setText("");
             }
             holder.tvDamage.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    enemyList.get(position).setDamage(charSequence.toString());
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    current.setDamage(charSequence.toString());
                 }
 
                 @Override
@@ -122,16 +126,18 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             });
             if (current.getFeats() != null) {
                 holder.tvFeats.setText(current.getFeats());
+            } else {
+                holder.tvFeats.setText("");
             }
             holder.tvFeats.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    enemyList.get(position).setFeats(charSequence.toString());
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    current.setFeats(charSequence.toString());
                 }
 
                 @Override
@@ -141,16 +147,18 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             });
             if (current.getResists() != null) {
                 holder.tvResists.setText(current.getResists());
+            } else {
+                holder.tvResists.setText("");
             }
             holder.tvResists.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    enemyList.get(position).setResists(charSequence.toString());
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    current.setResists(charSequence.toString());
                 }
 
                 @Override
@@ -160,16 +168,18 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             });
             if (current.getFeats() != null) {
                 holder.tvSpecials.setText(current.getSpecials());
+            } else {
+                holder.tvSpecials.setText("");
             }
             holder.tvSpecials.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    enemyList.get(position).setSpecials(charSequence.toString());
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    current.setSpecials(charSequence.toString());
                 }
 
                 @Override
@@ -181,14 +191,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvPG.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setPg(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setPg(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -200,14 +210,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvCA.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setCa(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setCa(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -219,14 +229,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvFlatFooted.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setFlatFooted(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setFlatFooted(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -238,14 +248,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvTouch.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setTouch(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setTouch(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -257,14 +267,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvFort.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setTouch(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setTouch(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -276,14 +286,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvRef.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setRef(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setRef(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -295,15 +305,15 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvVol.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setVol(Integer.parseInt(charSequence.toString()));
-                    }
+
 
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setVol(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -315,14 +325,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvSpeed.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setSpeed(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setSpeed(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -334,14 +344,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvInitiative.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setInitiative(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setInitiative(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -353,14 +363,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvAttack.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setAttack(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setAttack(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override
@@ -372,14 +382,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
             holder.tvExperience.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(!charSequence.toString().equals("")) {
-                        enemyList.get(position).setExperiencePoints(Integer.parseInt(charSequence.toString()));
-                    }
+
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                    if(!charSequence.toString().equals("")) {
+                        current.setExperiencePoints(Integer.parseInt(charSequence.toString()));
+                    }
                 }
 
                 @Override

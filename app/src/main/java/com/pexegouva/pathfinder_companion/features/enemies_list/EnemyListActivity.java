@@ -55,6 +55,7 @@ public class EnemyListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                updateEnemies();
                 Enemy enemy = new Enemy();
                 enemyViewModel.insert(enemy);
             }
@@ -64,11 +65,13 @@ public class EnemyListActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
+        updateEnemies();
+    }
+
+    private void updateEnemies() {
         List<Enemy> enemies = enemyViewModel.getAllEnemies().getValue();
         for (Enemy enemy: enemies) {
             enemyViewModel.insert(enemy);
         }
-
     }
-
 }
