@@ -20,278 +20,315 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="Defense"
-        android:textSize="15sp"
-        tools:ignore="HardcodedText" />
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="PG">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_pg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="CA">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_ca"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Flat-footed">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_flat_footed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Touch">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_touch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Fort">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_fort"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Ref">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_ref"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Vol">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_vol"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Resists">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/enemy_list_resists"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Combat"
-        android:layout_marginTop="6dp"
-        android:textSize="15sp"
-        tools:ignore="HardcodedText" />
+        android:orientation="vertical"
+        android:background="@drawable/customborder"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Defense"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="PG">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_pg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="CA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_ca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Flat-footed">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_flat_footed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Touch">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_touch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Fort">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_fort"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Ref">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_ref"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Vol">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_vol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Resists">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enemy_list_resists"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/customborder"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Combat"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Speed">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Initiative">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_initiative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Attack">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_attack_bonus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    tools:ignore="HardcodedText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:hint="Damage">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enemy_list_damage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/customborder"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Skills"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Speed">
+            android:hint="Feats">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_speed"
+                android:id="@+id/enemy_list_feats"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Initiative">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_initiative"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Attack">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_attack_bonus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:inputType="number"
-                tools:ignore="HardcodedText"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:hint="Damage">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enemy_list_damage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:textSize="14sp"
                 tools:ignore="HardcodedText" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Specials">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enemy_list_specials"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Experience">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enemy_list_experience"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"
+                android:inputType="number"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Skills"
-        android:layout_marginTop="6dp"
-        android:textSize="15sp"
-        tools:ignore="HardcodedText" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Feats">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/enemy_list_feats"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Specials">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/enemy_list_specials"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Experience">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/enemy_list_experience"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="14sp"
-            android:inputType="number"
-            tools:ignore="HardcodedText" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
