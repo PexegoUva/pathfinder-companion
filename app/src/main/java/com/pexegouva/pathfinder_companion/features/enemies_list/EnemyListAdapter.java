@@ -2,15 +2,18 @@ package com.pexegouva.pathfinder_companion.features.enemies_list;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.pexegouva.pathfinder_companion.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.fragment.app.FragmentActivity;
@@ -21,6 +24,7 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
 
 
     class EnemiesViewHolder extends RecyclerView.ViewHolder {
+        private final LinearLayout enemyLayout;
         private final EditText tvName;
         private final EditText tvPG;
         private final EditText tvCA;
@@ -40,6 +44,8 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
 
         private EnemiesViewHolder(View itemView) {
             super(itemView);
+            enemyLayout = itemView.findViewById(R.id.enemy_layout);
+
             tvName = itemView.findViewById(R.id.enemy_list_name);
 
             // Defense
@@ -66,10 +72,13 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
     }
 
     private final LayoutInflater mInflater;
-    private List<Enemy> enemyList; // Cached copy of words
+    private Context context;
+    private List<Enemy> enemyList; // Cached copy of enemies
+    private List<Enemy> selectedEnemies = new ArrayList<>();
 
     EnemyListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
+        this.context = context;
     }
 
     @Override
@@ -80,8 +89,29 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
 
     @Override
     public void onBindViewHolder(EnemiesViewHolder holder, int position) {
+        holder.enemyLayout.setBackgroundColor(Color.WHITE);
         if (enemyList != null) {
             Enemy current = enemyList.get(position);
+
+            holder.enemyLayout.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if (selectedEnemies != null && selectedEnemies.contains(current)) {
+                        holder.enemyLayout.setBackgroundColor(Color.WHITE);
+                        selectedEnemies.remove(current);
+                        if (selectedEnemies.size() == 0) {
+                            ((EnemyListActivity)context).hideDelete();
+                        }
+                    } else {
+                        holder.enemyLayout.setBackgroundColor(context.getResources()
+                                .getColor(R.color.selectedItem));
+                        selectedEnemies.add(current);
+                        ((EnemyListActivity)context).showDelete();
+                    }
+                    return false;
+                }
+            });
+
             if (current.getName() != null) {
                 holder.tvName.setText(current.getName());
             } else {
@@ -403,6 +433,14 @@ public class EnemyListAdapter extends RecyclerView.Adapter<EnemyListAdapter.Enem
     void setEnemies(List<Enemy> enemies){
         enemyList = enemies;
         notifyDataSetChanged();
+    }
+
+    void resetSelectedList() {
+        selectedEnemies = new ArrayList<>();
+    }
+
+    List<Enemy> getSelectedEnemies() {
+        return selectedEnemies;
     }
 
     // getItemCount() is called many times, and when it is first called,

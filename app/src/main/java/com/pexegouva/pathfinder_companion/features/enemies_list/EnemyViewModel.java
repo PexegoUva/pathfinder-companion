@@ -20,6 +20,8 @@ public class EnemyViewModel extends AndroidViewModel {
 
     LiveData<List<Enemy>> getAllEnemies() { return allEnemies; }
 
-    public void insert(Enemy enemy) { mRepository.insert(enemy); }
+    void insert(Enemy enemy) { mRepository.insert(enemy); }
+
+    void delete(Enemy enemy) { mRepository.delete(enemy); }
 
 }

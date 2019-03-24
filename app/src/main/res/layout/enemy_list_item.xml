@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/enemy_layout"
     android:padding="8dp">
 
     <com.google.android.material.textfield.TextInputLayout
